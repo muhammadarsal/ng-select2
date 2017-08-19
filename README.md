@@ -1,7 +1,6 @@
-# Angular wrapper for Select2 (ng2-select2)
+# Angular 4 wrapper component of jquery select2 (ng-select2)
 
-For Angular version 4.x.x and up
-
+For Angular version 4.x.x and up. Supports two-way data-binding.
 
 ## Prerequisites
 
@@ -10,11 +9,16 @@ For this plugin to work you need to add two javascript libraries to your project
 - [Select2](https://select2.github.io/)
 
 First install jQuery and its types using npm
-`npm i -S jQuery`
-`npm i -S @types/jQuery`
+
+`npm i -S jquery`
+
+`npm i -S @types/jquery`
 
 Then install select2 using npm
+
 `npm i -S select2`
+
+`npm i -S @types/select2`
 
 Now include their scrpits and styles in your `angularcli.json` file
 ```
@@ -30,47 +34,39 @@ Now include their scrpits and styles in your `angularcli.json` file
 
 ## Installation
 
-Add package to your project `npm i -S ng2-select2` (this will save package to your `dependencies` in `package.json`)
+Add package to your project `npm i -S ng-select2` (this will save package to your `dependencies` in `package.json`)
 
 
 ## Basic implementation
 
-1) Add declaration to [NgModule](https://github.com/NejcZdovc/ng2-select2-demo/blob/master/src/app/app.module.ts#L35)
+1) Add declaration to your `app.module.ts`
 ```
-import { Select2Module } from 'ng2-select2';
+import { NgSelect2Module } from 'ng-select2';
 
 @NgModule({
   imports: [
     ....,
-    Select2Module
+    NgSelect2Module
   ],
   ...
 })
 ```
 
-2) Add it to your [template](https://github.com/NejcZdovc/ng2-select2-demo/blob/master/src/app/demos/basic/basic.component.html#L3). You need to define at least `data` as `@Input`.
-
-Example of `exampleData` can be found [here](https://github.com/NejcZdovc/ng2-select2-demo/blob/master/src/app/demos/basic/basic.component.ts#L13).
+2) Add it to your template.
 
 ```
-<select2 [data]="exampleData"></select2>
+<ng-select2 [data]="exampleData"></ng-select2>
 ```
 
 
 ## Options
 
 ### Inputs
-* **data** `Array<Select2OptionData>`: Data used for generating select 2 - [inferface definition](https://github.com/NejcZdovc/ng2-select2/blob/master/lib/ng2-select2.interface.ts#L1)
+* **data** `Array<Select2OptionData>`: Data used for generating select 2 - inferface definition
 * **value** `string`: Default value for select 2
-* **cssImport** `boolean`: Disable or enable default style for select 2, default value is `true`
 * **width** `string`: Set width for the input, default value is `resolve`
 * **disabled** `boolean`: Disable select2, default value is `false`
 * **options** `Select2Options`: Set options for select 2, [all available options](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/4869992bc079b88280b9ff91213528904109e8ae/select2/index.d.ts#L40) for select 2
 
 ### Outputs
-* **valueChanged** `string`: Emitted when value changes in select 2 drop down 
-
-
-## Demo
-
-You can view a live demo [here](https://nejczdovc.github.io/ng2-select2-demo) or check out [demo repo](https://github.com/NejcZdovc/ng2-select2-demo/) where you can find source of this demo created with Angular CLI.
+* **valueChanged** `string`: Emitted when value changes in select2 drop-down

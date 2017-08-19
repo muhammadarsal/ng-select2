@@ -1,14 +1,19 @@
 {
   "name": "ng-select2",
-  "version": "1.0.1",
+  "version": "1.0.0-beta.6",
   "description": "Angular 4 wrapper component of jQuery select2.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muhammadarsal/ng-select2.git"
+  },
   "keywords": [
-    "select2"
+    "select2",
+    "angular4"
   ],
   "author": "Muhammad Arsal Abdullah <muhammadarsal.mail@gmail.com>",
-  "license": "ISC"
+  "license": "MIT"
 }

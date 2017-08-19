@@ -21,7 +21,6 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 import { Select2OptionData } from './ng-select2.interface';
-// import { Select2Options } from './Select2';
 
 declare var jQuery: any;
 
