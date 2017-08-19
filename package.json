@@ -1,0 +1,14 @@
+{
+  "name": "ng-select2",
+  "version": "1.0.0",
+  "description": "Angular 4 wrapper component of jQuery select2.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "select2"
+  ],
+  "author": "Muhammad Arsal Abdullah <muhammadarsal.mail@gmail.com>",
+  "license": "ISC"
+}
