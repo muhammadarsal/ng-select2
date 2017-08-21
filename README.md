@@ -1,6 +1,6 @@
 # Angular 4 wrapper component of jquery select2 (ng-select2)
 
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php) [![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2)
 
 For Angular version 4.x.x and up. Forked from [ng2-select2](https://www.npmjs.com/package/ng2-select2). Supports two-way data-binding.
 
