@@ -1,6 +1,6 @@
 {
   "name": "ng-select2",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.11",
   "description": "Angular 4 wrapper component of jQuery select2.",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,9 @@
     "angular4"
   ],
   "author": "Muhammad Arsal Abdullah <muhammadarsal.mail@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/jquery": "^2.0.39",
+    "@types/select2": "^4.0.31"
+  }
 }

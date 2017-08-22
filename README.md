@@ -10,17 +10,13 @@ For this plugin to work you need to add two javascript libraries to your project
 - [Jquery](https://jquery.com/download/)
 - [Select2](https://select2.github.io/)
 
-First install jQuery and its types using npm
+First install jQuery using npm
 
 `npm i -S jquery`
-
-`npm i -S @types/jquery`
 
 Then install select2 using npm
 
 `npm i -S select2`
-
-`npm i -S @types/select2`
 
 Now include their scrpits and styles in your `angularcli.json` file
 ```
@@ -60,15 +56,25 @@ import { NgSelect2Module } from 'ng-select2';
 <ng-select2 [data]="exampleData"></ng-select2>
 ```
 
+### Two-way data-binding
+```
+<ng-select2 
+	[(ngModel)]="fruit"
+	[data]="fruitList"
+	[placeholder]="'Please select a fruit...'">		
+</ng-select2>
+```
+
 
 ## Options
 
 ### Inputs
-* **data** `Array<Select2OptionData>`: Data used for generating select 2 - inferface definition
-* **value** `string`: Default value for select 2
+* **data** `Array<Select2OptionData>`: Data used for generating select2 - inferface definition
+* **value** `string`: Default value for select2
 * **width** `string`: Set width for the input, default value is `resolve`
 * **disabled** `boolean`: Disable select2, default value is `false`
-* **options** `Select2Options`: Set options for select 2, [all available options](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/4869992bc079b88280b9ff91213528904109e8ae/select2/index.d.ts#L40) for select 2
+* **placeholder** `string`: Placeholder for select2
+* **options** `Select2Options`: Set options for select2, [all available options](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/4869992bc079b88280b9ff91213528904109e8ae/select2/index.d.ts#L40) for select2
 
 ### Outputs
 * **valueChanged** `string`: Emitted when value changes in select2 drop-down
