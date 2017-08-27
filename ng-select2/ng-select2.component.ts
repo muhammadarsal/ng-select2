@@ -105,7 +105,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     if (changes['data'] && JSON.stringify(changes['data'].previousValue) !== JSON.stringify(changes['data'].currentValue)) {
       this.initPlugin();
 
-      const newValue: string = this.element.val();
+      const newValue: string | string[] = this.value;
       this.setElementValue(newValue);
       this.valueChanged.emit({
         value: newValue,
