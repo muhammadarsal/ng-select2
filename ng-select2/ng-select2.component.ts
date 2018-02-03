@@ -97,11 +97,11 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    
+
     if (!this.element) {
       return;
     }
-    
+
     if (changes['data'] && JSON.stringify(changes['data'].previousValue) !== JSON.stringify(changes['data'].currentValue)) {
       this.initPlugin();
 
@@ -109,7 +109,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       this.setElementValue(newValue);
       this.propagateChange(newValue);
     }
-    
+
     if (changes['value'] && changes['value'].previousValue !== changes['value'].currentValue) {
 
       const newValue: string = changes['value'].currentValue;
@@ -121,19 +121,19 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       });
       this.propagateChange(newValue);
     }
-    
+
     if (changes['disabled'] && changes['disabled'].previousValue !== changes['disabled'].currentValue) {
       this.renderer.setElementProperty(this.selector.nativeElement, 'disabled', this.disabled);
     }
-    
+
     if (changes['placeholder'] && changes['placeholder'].previousValue !== changes['placeholder'].currentValue) {
       this.renderer.setElementAttribute(this.selector.nativeElement, 'data-placeholder', this.placeholder);
     }
-    
+
     if (changes['dropdownParent'] && changes['dropdownParent'].previousValue !== changes['dropdownParent'].currentValue) {
       this.renderer.setElementAttribute(this.selector.nativeElement, 'data-dropdownParent', this.dropdownParent);
     }
-    
+
     if (changes['allowClear'] && changes['allowClear'].previousValue !== changes['allowClear'].currentValue) {
       this.renderer.setElementAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
     }
@@ -200,7 +200,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
 
     // this.options.placeholder = '::SELECT::';
     Object.assign(options, this.options);
-    
+
     if (options.matcher) {
       jQuery.fn.select2.amd.require(['select2/compat/matcher'], (oldMatcher: any) => {
         options.matcher = oldMatcher(options.matcher);
@@ -213,22 +213,24 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     } else {
       this.element.select2(options);
     }
-    
+
     if (this.disabled) {
       this.renderer.setElementProperty(this.selector.nativeElement, 'disabled', this.disabled);
     }
   }
 
   private setElementValue(newValue: string | string[]) {
-    
+
     // this.zone.run(() => {
-    
+
       if (Array.isArray(newValue)) {
-    
+
         for (const option of this.selector.nativeElement.options) {
-    
+
           if (newValue.indexOf(option.value) > -1) {
             this.renderer.setElementProperty(option, 'selected', 'true');
+          } else {
+            this.renderer.setElementProperty(option, 'selected', false);
           }
         }
       }
@@ -236,16 +238,16 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       else {
         this.renderer.setElementProperty(this.selector.nativeElement, 'value', newValue);
       }
-      
+
       if(this.element) {
         this.element.trigger('change.select2');
-      } 
+      }
     // });
-  } 
+  }
 
 
   writeValue(value: any) {
-    
+
     if (value !== undefined) {
       this.value = value;
       this.setElementValue(value);
