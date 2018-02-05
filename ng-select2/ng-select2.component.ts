@@ -214,9 +214,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       this.element.select2(options);
     }
 
-    if (this.disabled) {
-      this.renderer.setElementProperty(this.selector.nativeElement, 'disabled', this.disabled);
-    }
+    this.renderer.setElementProperty(this.selector.nativeElement, 'disabled', this.disabled);
   }
 
   private setElementValue(newValue: string | string[]) {
@@ -226,12 +224,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       if (Array.isArray(newValue)) {
 
         for (const option of this.selector.nativeElement.options) {
-
-          if (newValue.indexOf(option.value) > -1) {
-            this.renderer.setElementProperty(option, 'selected', 'true');
-          } else {
-            this.renderer.setElementProperty(option, 'selected', false);
-          }
+          this.renderer.setElementProperty(option, 'selected', (newValue.indexOf(option.value) > -1));
         }
       }
 
