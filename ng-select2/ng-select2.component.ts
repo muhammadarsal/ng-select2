@@ -21,6 +21,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 import { Select2OptionData } from './ng-select2.interface';
+import { Options } from 'select2';
 
 declare var jQuery: any;
 
@@ -64,7 +65,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
   @Input() disabled = false;
 
   // all additional options
-  @Input() options: Select2Options;
+  @Input() options: Options;
 
   // emitter when value is changed
   @Output() valueChanged = new EventEmitter();
@@ -185,7 +186,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       this.renderer.setElementProperty(this.selector.nativeElement, 'innerHTML', '');
     }
 
-    let options: Select2Options = {
+    let options: Options = {
       data: this.data,
       width: (this.width) ? this.width : 'resolve'
     };
