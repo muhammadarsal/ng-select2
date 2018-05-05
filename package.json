@@ -1,6 +1,6 @@
 {
   "name": "ng-select2",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Angular 4 wrapper component of jQuery select2.",
   "main": "index.js",
   "scripts": {
