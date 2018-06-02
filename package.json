@@ -2,17 +2,22 @@
   "name": "ng-select2",
   "version": "0.0.0",
   "dependencies": {
-    "@angular/common": "^6.0.0",
-    "@angular/core": "^6.0.0",
-    "@angular/compiler": "^6.0.0",
     "@angular/animations": "^6.0.0",
+    "@angular/common": "^6.0.0",
+    "@angular/compiler": "^6.0.0",
+    "@angular/core": "^6.0.0",
     "@angular/forms": "^6.0.0",
     "@angular/http": "^6.0.0",
     "@angular/platform-browser": "^6.0.0",
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
+    "@types/jquery": "^3.2.x",
+    "@types/select2": "^4.0.x",
+    "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
+    "jquery": "^3.2.x",
     "rxjs": "^6.0.0",
+    "select2": "^4.0.x",
     "zone.js": "^0.8.26"
   },
   "scripts": {
@@ -22,7 +27,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p projects/ng-select2/ng-package.json"
+    "packagr": "ng-packagr -p projects/ng-select2/ng-package.json",
+    "packagr-prod": "ng-packagr -p projects/ng-select2/ng-package.prod.json"
   },
   "private": true,
   "devDependencies": {

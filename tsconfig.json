@@ -18,7 +18,7 @@
     ],
     "paths": {
       "ngSelect2": [
-        "dist/ng-select2"
+        "projects/ng-select2/src/public_api.ts"
       ]
     }
   }

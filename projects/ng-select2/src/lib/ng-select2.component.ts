@@ -54,9 +54,6 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
   // value for select2
   @Input() value: string | string[];
 
-  // enable / disable default style for select2
-  // @Input() cssImport = false;
-
   // width of select2 input
   @Input() width: string;
 
@@ -174,7 +171,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       if (!this.check) {
         this.check = true;
         console.log('Please add Select2 library (js file) to the project.' +
-         'You can download it from https://github.com/select2/select2/tree/master/dist/js.');
+          'You can download it from https://github.com/select2/select2/tree/master/dist/js.');
       }
 
       return;
