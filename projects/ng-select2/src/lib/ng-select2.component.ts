@@ -1,27 +1,26 @@
 /// <reference types="select2" />
 import {
+  forwardRef,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  DoCheck,
   ElementRef,
   EventEmitter,
   Input,
+  NgZone,
   OnChanges,
-  DoCheck,
   OnDestroy,
+  OnInit,
   Output,
+  Renderer,
   SimpleChanges,
   ViewChild,
   ViewEncapsulation,
-  Renderer,
-  OnInit,
-  forwardRef,
-  NgZone,
-  Self
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
-import { Select2OptionData } from './ng-select2.interface';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Options } from 'select2';
+import { Select2OptionData } from './ng-select2.interface';
 
 declare var jQuery: any;
 
@@ -34,9 +33,9 @@ declare var jQuery: any;
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NgSelect2Component),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, OnInit, DoCheck, ControlValueAccessor {
   @ViewChild('selector') selector: ElementRef;
@@ -55,9 +54,6 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
   // value for select2
   @Input() value: string | string[];
 
-  // enable / disable default style for select2
-  // @Input() cssImport = false;
-
   // width of select2 input
   @Input() width: string;
 
@@ -72,7 +68,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
 
   private element: any = undefined;
   private check = false;
-  private style = `CSS`;
+  // private style = `CSS`;
 
   constructor(private renderer: Renderer, public zone: NgZone, public _element: ElementRef) {
   }
@@ -118,7 +114,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       this.setElementValue(newValue);
       this.valueChanged.emit({
         value: newValue,
-        data: this.element.select2('data')
+        data: this.element.select2('data'),
       });
       this.propagateChange(newValue);
     }
@@ -155,11 +151,11 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
 
     this.element.on('select2:select select2:unselect', (e: any) => {
       // const newValue: string = (e.type === 'select2:unselect') ? '' : this.element.val();
-      const newValue =  this.element.val();
+      const newValue = this.element.val();
 
       this.valueChanged.emit({
         value: newValue,
-        data: this.element.select2('data')
+        data: this.element.select2('data'),
       });
       this.propagateChange(newValue);
       this.setElementValue(newValue);
@@ -174,7 +170,8 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     if (!this.element.select2) {
       if (!this.check) {
         this.check = true;
-        console.log('Please add Select2 library (js file) to the project. You can download it from https://github.com/select2/select2/tree/master/dist/js.');
+        console.log('Please add Select2 library (js file) to the project.' +
+          'You can download it from https://github.com/select2/select2/tree/master/dist/js.');
       }
 
       return;
@@ -188,14 +185,14 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
 
     let options: Options = {
       data: this.data,
-      width: (this.width) ? this.width : 'resolve'
+      width: (this.width) ? this.width : 'resolve',
     };
 
     if (this.dropdownParent) {
       options = {
         data: this.data,
         width: (this.width) ? this.width : 'resolve',
-        dropdownParent: jQuery('#' + this.dropdownParent)
+        dropdownParent: jQuery('#' + this.dropdownParent),
       };
     }
 
@@ -222,20 +219,18 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
 
     // this.zone.run(() => {
 
-      if (Array.isArray(newValue)) {
+    if (Array.isArray(newValue)) {
 
-        for (const option of this.selector.nativeElement.options) {
-          this.renderer.setElementProperty(option, 'selected', (newValue.indexOf(option.value) > -1));
-        }
+      for (const option of this.selector.nativeElement.options) {
+        this.renderer.setElementProperty(option, 'selected', (newValue.indexOf(option.value) > -1));
       }
+    } else {
+      this.renderer.setElementProperty(this.selector.nativeElement, 'value', newValue);
+    }
 
-      else {
-        this.renderer.setElementProperty(this.selector.nativeElement, 'value', newValue);
-      }
-
-      if(this.element) {
-        this.element.trigger('change.select2');
-      }
+    if (this.element) {
+      this.element.trigger('change.select2');
+    }
     // });
   }
 
