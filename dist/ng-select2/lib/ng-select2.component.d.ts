@@ -24,8 +24,8 @@ export declare class NgSelect2Component implements AfterViewInit, OnChanges, OnD
     ngOnChanges(changes: SimpleChanges): void;
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
-    private initPlugin();
-    private setElementValue(newValue);
+    private initPlugin;
+    private setElementValue;
     writeValue(value: any): void;
     propagateChange: (value: any) => void;
     registerOnChange(fn: any): void;

@@ -13,8 +13,8 @@
   "author": "Muhammad Arsal Abdullah <muhammadarsal.mail@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0 || ^7.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0 || ^7.0.0",
     "@types/jquery": "^3.2.x",
     "@types/select2": "^4.0.x",
     "select2": "^4.0.x"
