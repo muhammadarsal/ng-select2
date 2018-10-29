@@ -1,16 +1,17 @@
 {
   "name": "ng-select2",
-  "version": "1.0.6",
-  "description": "Angular 4 wrapper component of jQuery select2.",
+  "version": "1.0.7-rc.1",
+  "description": "Angular 6 & 7 wrapper component of jQuery select2.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/muhammadarsal/ng-select2.git"
+    "url": "https://github.com/tealpartners/ng-select2/"
   },
   "keywords": [
     "select2",
-    "angular4"
+    "angular4",
+	"angular7"
   ],
-  "author": "Muhammad Arsal Abdullah <muhammadarsal.mail@gmail.com>",
+  "author": "Muhammad Arsal Abdullah <muhammadarsal.mail@gmail.com>; Stijn Goethals <stijn@tealpartners.com>",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0 || ^7.0.0",
