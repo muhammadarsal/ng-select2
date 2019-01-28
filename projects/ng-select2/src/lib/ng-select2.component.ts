@@ -124,7 +124,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     }
 
     if (changes['placeholder'] && changes['placeholder'].previousValue !== changes['placeholder'].currentValue) {
-      this.renderer.setElementAttribute(this.selector.nativeElement, 'data-placeholder', this.placeholder);
+      this.element.data('select2').$container.find('.select2-selection__placeholder').text(this.placeholder);
     }
 
     if (changes['dropdownParent'] && changes['dropdownParent'].previousValue !== changes['dropdownParent'].currentValue) {
@@ -138,7 +138,6 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
 
   ngAfterViewInit() {
     this.element = jQuery(this.selector.nativeElement);
-    this.renderer.setElementAttribute(this.selector.nativeElement, 'data-placeholder', this.placeholder);
     this.renderer.setElementAttribute(this.selector.nativeElement, 'data-dropdownParent', this.dropdownParent);
     this.renderer.setElementAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
     // console.log(this.selector.nativeElement);
@@ -186,6 +185,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     let options: Options = {
       data: this.data,
       width: (this.width) ? this.width : 'resolve',
+      placeholder: this.placeholder
     };
 
     if (this.dropdownParent) {
@@ -196,7 +196,6 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       };
     }
 
-    // this.options.placeholder = '::SELECT::';
     Object.assign(options, this.options);
 
     if (options.matcher) {
