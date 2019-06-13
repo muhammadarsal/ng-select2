@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
 import { NgSelect2Component } from './ng-select2.component';
 
 @NgModule({

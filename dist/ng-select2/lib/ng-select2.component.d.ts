@@ -1,7 +1,7 @@
-import { AfterViewInit, DoCheck, ElementRef, EventEmitter, NgZone, OnChanges, OnDestroy, OnInit, Renderer, SimpleChanges } from '@angular/core';
+import { AfterViewInit, DoCheck, ElementRef, EventEmitter, NgZone, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { Options } from 'select2';
 import { Select2OptionData } from './ng-select2.interface';
+import { Options } from 'select2';
 export declare class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, OnInit, DoCheck, ControlValueAccessor {
     private renderer;
     zone: NgZone;
@@ -18,7 +18,7 @@ export declare class NgSelect2Component implements AfterViewInit, OnChanges, OnD
     valueChanged: EventEmitter<{}>;
     private element;
     private check;
-    constructor(renderer: Renderer, zone: NgZone, _element: ElementRef);
+    constructor(renderer: Renderer2, zone: NgZone, _element: ElementRef);
     ngDoCheck(): void;
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;

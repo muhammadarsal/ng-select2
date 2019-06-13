@@ -13,14 +13,14 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  Renderer,
+  Renderer2,
   SimpleChanges,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Options } from 'select2';
 import { Select2OptionData } from './ng-select2.interface';
+import { Options } from 'select2';
 
 declare var jQuery: any;
 
@@ -38,7 +38,7 @@ declare var jQuery: any;
   ],
 })
 export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, OnInit, DoCheck, ControlValueAccessor {
-  @ViewChild('selector') selector: ElementRef;
+  @ViewChild('selector', { static: true }) selector: ElementRef;
 
   // data for select2 drop down
   @Input() data: Array<Select2OptionData>;
@@ -70,7 +70,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
   private check = false;
   // private style = `CSS`;
 
-  constructor(private renderer: Renderer, public zone: NgZone, public _element: ElementRef) {
+  constructor(private renderer: Renderer2, public zone: NgZone, public _element: ElementRef) {
   }
 
   ngDoCheck() {
@@ -120,7 +120,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     }
 
     if (changes['disabled'] && changes['disabled'].previousValue !== changes['disabled'].currentValue) {
-      this.renderer.setElementProperty(this.selector.nativeElement, 'disabled', this.disabled);
+      this.renderer.setProperty(this.selector.nativeElement, 'disabled', this.disabled);
     }
 
     if (changes['placeholder'] && changes['placeholder'].previousValue !== changes['placeholder'].currentValue) {
@@ -128,18 +128,18 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     }
 
     if (changes['dropdownParent'] && changes['dropdownParent'].previousValue !== changes['dropdownParent'].currentValue) {
-      this.renderer.setElementAttribute(this.selector.nativeElement, 'data-dropdownParent', this.dropdownParent);
+      this.renderer.setAttribute(this.selector.nativeElement, 'data-dropdownParent', this.dropdownParent);
     }
 
     if (changes['allowClear'] && changes['allowClear'].previousValue !== changes['allowClear'].currentValue) {
-      this.renderer.setElementAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
+      this.renderer.setAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
     }
   }
 
   ngAfterViewInit() {
     this.element = jQuery(this.selector.nativeElement);
-    this.renderer.setElementAttribute(this.selector.nativeElement, 'data-dropdownParent', this.dropdownParent);
-    this.renderer.setElementAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
+    this.renderer.setAttribute(this.selector.nativeElement, 'data-dropdownParent', this.dropdownParent);
+    this.renderer.setAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
     // console.log(this.selector.nativeElement);
 
     this.initPlugin();
@@ -179,7 +179,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     // If select2 already initialized remove him and remove all tags inside
     if (this.element.hasClass('select2-hidden-accessible') === true) {
       this.element.select2('destroy');
-      this.renderer.setElementProperty(this.selector.nativeElement, 'innerHTML', '');
+      this.renderer.setProperty(this.selector.nativeElement, 'innerHTML', '');
     }
 
     let options: Options = {
@@ -211,7 +211,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       this.element.select2(options);
     }
 
-    this.renderer.setElementProperty(this.selector.nativeElement, 'disabled', this.disabled);
+    this.renderer.setProperty(this.selector.nativeElement, 'disabled', this.disabled);
   }
 
   private setElementValue(newValue: string | string[]) {
@@ -221,10 +221,10 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     if (Array.isArray(newValue)) {
 
       for (const option of this.selector.nativeElement.options) {
-        this.renderer.setElementProperty(option, 'selected', (newValue.indexOf(option.value) > -1));
+        this.renderer.setProperty(option, 'selected', (newValue.indexOf(option.value) > -1));
       }
     } else {
-      this.renderer.setElementProperty(this.selector.nativeElement, 'value', newValue);
+      this.renderer.setProperty(this.selector.nativeElement, 'value', newValue);
     }
 
     if (this.element) {

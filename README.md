@@ -1,8 +1,8 @@
-# Angular 7 wrapper component of jquery select2 (ng-select2)
+# Angular 8 wrapper component of jquery select2 (ng-select2)
 
 [![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2) [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-For Angular version 6.x.x and up. Forked from [ng2-select2](https://www.npmjs.com/package/ng2-select2). Supports two-way data-binding.
+For Angular version 8.x.x and up. Forked from [ng2-select2](https://www.npmjs.com/package/ng2-select2). Supports two-way data-binding.
 
 ## Prerequisites
 
