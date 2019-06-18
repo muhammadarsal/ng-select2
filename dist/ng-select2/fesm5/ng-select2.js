@@ -219,7 +219,7 @@ var NgSelect2Component = /** @class */ (function () {
     NgSelect2Component = NgSelect2Component_1 = __decorate([
         Component({
             selector: 'ng-select2',
-            template: "<select #selector>\n  <ng-content select=\"option, optgroup\">\n  </ng-content>\n</select>\n",
+            template: "<select #selector>\r\n  <ng-content select=\"option, optgroup\">\r\n  </ng-content>\r\n</select>\r\n",
             encapsulation: ViewEncapsulation.None,
             changeDetection: ChangeDetectionStrategy.OnPush,
             providers: [

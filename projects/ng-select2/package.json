@@ -1,6 +1,6 @@
 {
   "name": "ng-select2",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Angular 8 wrapper component of jQuery select2.",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0",
-    "@types/jquery": "^3.4.x",
+    "@types/jquery": "^3.3.x",
     "@types/select2": "^4.0.x",
     "select2": "^4.0.x"
   },
