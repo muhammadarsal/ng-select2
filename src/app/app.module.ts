@@ -11,6 +11,7 @@ import { MultipleComponent } from './demos/multiple/multiple.component';
 import { TemplateComponent } from './demos/template/template.component';
 import { DataService } from './services/data.service';
 import { FormsModule } from '@angular/forms';
+import { CustomArrayComponent } from './demos/custom-array/custom-array.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     ChangeComponent,
     DynamicComponent,
     TemplateComponent,
-    MultipleComponent
+    MultipleComponent,
+    CustomArrayComponent
   ],
   imports: [
     BrowserModule,
