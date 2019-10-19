@@ -112,10 +112,6 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       const newValue: string = changes['value'].currentValue;
 
       this.setElementValue(newValue);
-      this.valueChanged.emit({
-        value: newValue,
-        data: this.element.select2('data'),
-      });
       this.propagateChange(newValue);
     }
 
@@ -152,10 +148,6 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       // const newValue: string = (e.type === 'select2:unselect') ? '' : this.element.val();
       const newValue = this.element.val();
 
-      this.valueChanged.emit({
-        value: newValue,
-        data: this.element.select2('data'),
-      });
       this.propagateChange(newValue);
       this.setElementValue(newValue);
     });

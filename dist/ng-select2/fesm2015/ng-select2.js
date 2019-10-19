@@ -52,10 +52,6 @@ let NgSelect2Component = NgSelect2Component_1 = class NgSelect2Component {
         if (changes['value'] && changes['value'].previousValue !== changes['value'].currentValue) {
             const newValue = changes['value'].currentValue;
             this.setElementValue(newValue);
-            this.valueChanged.emit({
-                value: newValue,
-                data: this.element.select2('data'),
-            });
             this.propagateChange(newValue);
         }
         if (changes['disabled'] && changes['disabled'].previousValue !== changes['disabled'].currentValue) {
@@ -83,10 +79,6 @@ let NgSelect2Component = NgSelect2Component_1 = class NgSelect2Component {
         this.element.on('select2:select select2:unselect', (e) => {
             // const newValue: string = (e.type === 'select2:unselect') ? '' : this.element.val();
             const newValue = this.element.val();
-            this.valueChanged.emit({
-                value: newValue,
-                data: this.element.select2('data'),
-            });
             this.propagateChange(newValue);
             this.setElementValue(newValue);
         });

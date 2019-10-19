@@ -90,10 +90,6 @@
             if (changes['value'] && changes['value'].previousValue !== changes['value'].currentValue) {
                 var newValue = changes['value'].currentValue;
                 this.setElementValue(newValue);
-                this.valueChanged.emit({
-                    value: newValue,
-                    data: this.element.select2('data'),
-                });
                 this.propagateChange(newValue);
             }
             if (changes['disabled'] && changes['disabled'].previousValue !== changes['disabled'].currentValue) {
@@ -122,10 +118,6 @@
             this.element.on('select2:select select2:unselect', function (e) {
                 // const newValue: string = (e.type === 'select2:unselect') ? '' : this.element.val();
                 var newValue = _this.element.val();
-                _this.valueChanged.emit({
-                    value: newValue,
-                    data: _this.element.select2('data'),
-                });
                 _this.propagateChange(newValue);
                 _this.setElementValue(newValue);
             });

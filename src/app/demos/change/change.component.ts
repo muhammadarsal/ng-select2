@@ -9,7 +9,15 @@ import { Select2OptionData } from 'ngSelect2';
 })
 export class ChangeComponent implements OnInit {
   public exampleData: Array<Select2OptionData>;
-  public value: string;
+
+  private _value: string;
+  get value(): string {
+    return this._value;
+  }
+  set value(value: string) {
+    this._value = value;
+  }
+
   public placeholder = 'placeholder';
 
   constructor(private service: DataService) { }
