@@ -1,6 +1,6 @@
 # Angular 8 wrapper component of jquery select2 (ng-select2)
 
-[![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2) [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Actions Status](https://github.com/tealpartners/ng-select2/workflows/Node%20CI/badge.svg)](https://github.com/tealpartners/ng-select2/actions)
 
 For Angular version 8.x.x and up. Forked from [ng2-select2](https://www.npmjs.com/package/ng2-select2). Supports two-way data-binding.
 
