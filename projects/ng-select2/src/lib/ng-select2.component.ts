@@ -64,7 +64,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
   @Input() options: Options;
 
   // emitter when value is changed
-  @Output() valueChanged = new EventEmitter();
+  @Output() valueChanged = new EventEmitter<string | string[]>();
 
   private element: any = undefined;
   private check = false;
@@ -104,6 +104,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
 
       const newValue: string | string[] = this.value;
       this.setElementValue(newValue);
+      this.valueChanged.emit(newValue);
       this.propagateChange(newValue);
     }
 
@@ -112,6 +113,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       const newValue: string = changes['value'].currentValue;
 
       this.setElementValue(newValue);
+      this.valueChanged.emit(newValue);
       this.propagateChange(newValue);
     }
 
@@ -148,8 +150,8 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       // const newValue: string = (e.type === 'select2:unselect') ? '' : this.element.val();
       const newValue = this.element.val();
 
+      this.valueChanged.emit(newValue);
       this.propagateChange(newValue);
-      this.setElementValue(newValue);
     });
   }
 
@@ -236,11 +238,10 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     }
   }
 
-  propagateChange = (value: any) => { };
+  propagateChange = (value: string | string[]) => { };
 
   registerOnChange(fn: any) {
     this.propagateChange = fn;
-    this.valueChanged.subscribe(fn);
   }
 
   registerOnTouched() {

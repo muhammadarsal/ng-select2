@@ -15,6 +15,7 @@ export class ChangeComponent implements OnInit {
     return this._value;
   }
   set value(value: string) {
+    console.log('set value with ' + value);
     this._value = value;
   }
 
