@@ -113,7 +113,7 @@ Every single demo is separate component. Bellow you can find links to components
 - default value
 - tags
 
-#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/value-changed)
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/value-changed) with value changed
 - Demo with value changed output to console log
 
 
