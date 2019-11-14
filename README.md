@@ -77,7 +77,7 @@ import { NgSelect2Module } from 'ng-select2';
 * **options** `Options`: Set options for select2, [all available options](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/4869992bc079b88280b9ff91213528904109e8ae/select2/index.d.ts#L40) for select2
 
 ### Outputs
-* **valueChanged** `string`: Emitted when value changes in select2 drop-down
+* **valueChanged** `string | string[]`: Emitted when value changes in select2 drop-down
 
 # Demos for angular wrapper for Select2
 
