@@ -71,8 +71,10 @@ import { NgSelect2Module } from 'ng-select2';
 ### Inputs
 * **data** `Array<Select2OptionData>`: Data used for generating select2 - inferface definition
 * **value** `string`: Default value for select2
+* **dropdownParent** `string`: Allows you to [customize placement](https://select2.org/dropdown#dropdown-placement) of the dropdown.
 * **width** `string`: Set width for the input, default value is `resolve`
 * **disabled** `boolean`: Disable select2, default value is `false`
+* **allowClear** `boolean`:  	Provides support for [clearable selections](https://select2.org/selections#clearable-selections), default value is `false`
 * **placeholder** `string`: Placeholder for select2
 * **options** `Options`: Set options for select2, [all available options](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/4869992bc079b88280b9ff91213528904109e8ae/select2/index.d.ts#L40) for select2
 
@@ -116,5 +118,8 @@ Every single demo is separate component. Bellow you can find links to components
 #### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/value-changed) with value changed
 - Demo with value changed output to console log
 
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/allow-clear) with allow clear option
+- Demo with allow clear option
 
 Demo forked from: https://github.com/NejcZdovc/ng2-select2-demo
