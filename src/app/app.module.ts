@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgSelect2Module } from 'ngSelect2';
 
 import { AppComponent } from './app.component';
+import { AllowClearComponent } from './demos/allow-clear/allow-clear.component';
 import { BasicComponent } from './demos/basic/basic.component';
 import { ChangeComponent } from './demos/change/change.component';
 import { CustomArrayComponent } from './demos/custom-array/custom-array.component';
@@ -25,7 +26,8 @@ import { DataService } from './services/data.service';
     TemplateComponent,
     MultipleComponent,
     CustomArrayComponent,
-    ValueChangedComponent
+    ValueChangedComponent,
+    AllowClearComponent
   ],
   imports: [
     BrowserModule,
