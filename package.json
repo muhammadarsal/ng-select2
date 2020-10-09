@@ -2,14 +2,14 @@
   "name": "ng-select2",
   "version": "0.0.0",
   "dependencies": {
-    "@angular/animations": "9.1.12",
-    "@angular/common": "9.1.12",
-    "@angular/compiler": "9.1.12",
-    "@angular/core": "9.1.12",
-    "@angular/forms": "9.1.12",
-    "@angular/platform-browser": "9.1.12",
-    "@angular/platform-browser-dynamic": "9.1.12",
-    "@angular/router": "9.1.12",
+    "@angular/animations": "10.1.5",
+    "@angular/common": "10.1.5",
+    "@angular/compiler": "10.1.5",
+    "@angular/core": "10.1.5",
+    "@angular/forms": "10.1.5",
+    "@angular/platform-browser": "10.1.5",
+    "@angular/platform-browser-dynamic": "10.1.5",
+    "@angular/router": "10.1.5",
     "@types/jquery": "3.3.31",
     "@types/select2": "4.0.48",
     "bootstrap": "4.3.1",
@@ -17,7 +17,7 @@
     "popper.js": "1.16.0",
     "rxjs": "6.5.3",
     "select2": "4.0.11",
-    "tslib": "^1.10.0",
+    "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
   "scripts": {
@@ -33,17 +33,17 @@
   },
   "private": true,
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.12",
-    "@angular-devkit/build-ng-packagr": "~0.901.12",
-    "@angular/cli": "9.1.12",
-    "@angular/compiler-cli": "9.1.12",
-    "@angular/language-service": "9.1.12",
+    "@angular-devkit/build-angular": "~0.1001.6",
+    "@angular-devkit/build-ng-packagr": "~0.1001.6",
+    "@angular/cli": "10.1.6",
+    "@angular/compiler-cli": "10.1.5",
+    "@angular/language-service": "10.1.5",
     "@types/node": "^12.11.1",
     "angular-cli-ghpages": "0.6.0",
     "codelyzer": "^5.1.2",
-    "ng-packagr": "^9.0.0",
+    "ng-packagr": "^10.1.0",
     "ts-node": "8.4.1",
-    "tslint": "5.20.0",
-    "typescript": "3.8.3"
+    "tslint": "~6.1.0",
+    "typescript": "4.0.3"
   }
 }
