@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist-site/ng-select2",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -34,6 +35,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -141,7 +148,8 @@
           "configurations": {
             "production": {
               "project": "projects/ng-select2/ng-package.prod.json"
-            }
+            ,              "tsConfig": "projects/ng-select2/tsconfig.lib.prod.json"
+}
           }
         },
         "test": {
