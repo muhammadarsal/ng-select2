@@ -1,14 +1,14 @@
 {
   "name": "ng-select2",
-  "version": "1.2.3",
-  "description": "Angular 8 wrapper component of jQuery select2.",
+  "version": "1.2.4",
+  "description": "Angular wrapper component of jQuery select2.",
   "repository": {
     "type": "git",
     "url": "https://github.com/tealpartners/ng-select2/"
   },
   "keywords": [
     "select2",
-    "angular8"
+    "angular"
   ],
   "author": "Muhammad Arsal Abdullah <muhammadarsal.mail@gmail.com>",
   "contributors": [
@@ -17,8 +17,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^10.0.0",
-    "@angular/core": "^10.0.0",
+    "@angular/common": "^11.0.0",
+    "@angular/core": "^11.0.0",
     "@types/jquery": "^3.5.x",
     "@types/select2": "^4.0.x",
     "select2": "^4.0.x"
