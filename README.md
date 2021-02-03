@@ -122,4 +122,8 @@ Every single demo is separate component. Bellow you can find links to components
 #### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/allow-clear) with allow clear option
 - Demo with allow clear option
 
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/form) with a form
+- Demo with a form
+
 Demo forked from: https://github.com/NejcZdovc/ng2-select2-demo

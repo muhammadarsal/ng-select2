@@ -28,6 +28,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "github": "ng build --prod --base-href https://tealpartners.github.io/ng-select2/ && npx angular-cli-ghpages --dir dist-site/ng-select2",
     "packagr": "ng-packagr -p projects/ng-select2/ng-package.json",
     "packagr-prod": "ng-packagr -p projects/ng-select2/ng-package.prod.json"
   },

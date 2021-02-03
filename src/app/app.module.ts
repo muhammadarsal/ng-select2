@@ -9,6 +9,7 @@ import { BasicComponent } from './demos/basic/basic.component';
 import { ChangeComponent } from './demos/change/change.component';
 import { CustomArrayComponent } from './demos/custom-array/custom-array.component';
 import { DynamicComponent } from './demos/dynamic/dynamic.component';
+import { FormComponent } from './demos/form/form.component';
 import { MultipleComponent } from './demos/multiple/multiple.component';
 import { OptionsComponent } from './demos/options/options.component';
 import { TemplateComponent } from './demos/template/template.component';
@@ -27,7 +28,8 @@ import { DataService } from './services/data.service';
     MultipleComponent,
     CustomArrayComponent,
     ValueChangedComponent,
-    AllowClearComponent
+    AllowClearComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
