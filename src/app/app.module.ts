@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgSelect2Module } from 'ngSelect2';
 
@@ -32,7 +32,8 @@ import { DataService } from './services/data.service';
   imports: [
     BrowserModule,
     FormsModule,
-    NgSelect2Module
+    NgSelect2Module,
+    ReactiveFormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

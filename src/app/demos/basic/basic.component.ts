@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Select2OptionData } from 'ngSelect2';
 
 @Component({
@@ -8,6 +9,9 @@ import { Select2OptionData } from 'ngSelect2';
 })
 export class BasicComponent implements OnInit {
   public exampleData: Array<Select2OptionData>;
+
+  public formControl = new FormControl();
+  public value: string;
 
   ngOnInit() {
     this.exampleData = [

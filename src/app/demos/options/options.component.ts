@@ -33,7 +33,6 @@ export class OptionsComponent implements OnInit {
 
     this.options = {
       multiple: true,
-      theme: 'classic',
       closeOnSelect: false,
       width: '300'
     };

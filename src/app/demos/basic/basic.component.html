@@ -1,4 +1,10 @@
 <h2>1. Basic demo</h2>
 <ng-select2 [data]="exampleData"
+            [(ngModel)]="value"
+            [formControl]="formControl"
             [width]="300">
 </ng-select2>
+
+<br />
+<p>Selected value using ng-model: {{value}}</p>
+<p>Selected value using form control: {{formControl.value}}</p>
