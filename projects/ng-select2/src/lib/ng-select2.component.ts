@@ -142,7 +142,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
 
     this.initPlugin();
 
-    if (typeof this.value !== 'undefined') {
+    if (this.value !== undefined && this.value !== null) {
       this.setElementValue(this.value);
     }
 
