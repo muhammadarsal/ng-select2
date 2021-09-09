@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { Select2OptionData } from 'ngSelect2';
+import { Select2OptionData } from 'ng-select2';
 
 @Component({
   selector: 'app-change',

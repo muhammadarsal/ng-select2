@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Select2OptionData } from 'ngSelect2';
+import { Select2OptionData } from 'ng-select2';
 import { Observable } from 'rxjs';
 
 @Injectable()

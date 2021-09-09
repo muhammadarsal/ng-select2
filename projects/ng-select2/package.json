@@ -1,6 +1,6 @@
 {
   "name": "ng-select2",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Angular wrapper component of jQuery select2.",
   "repository": {
     "type": "git",
@@ -17,18 +17,20 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^11.0.0",
-    "@angular/core": "^11.0.0",
-    "@types/jquery": "^3.5.x",
+    "@angular/common": "^12.2.5",
+    "@angular/core": "^12.2.5",
+    "@types/jquery": "^3.6.x",
     "@types/select2": "^4.0.x",
-    "select2": "^4.0.x"
+    "select2": "^4.0.x",
+    "jquery": "^3.6.x"
   },
   "dependencies": {
     "tslib": "^2.0.0"
   },
   "devDependencies": {
-    "@types/jquery": "^3.3.x",
+    "@types/jquery": "^3.6.x",
     "@types/select2": "^4.0.x",
-    "select2": "^4.0.x"
+    "select2": "^4.0.x",
+    "jquery": "^3.6.x"
   }
 }

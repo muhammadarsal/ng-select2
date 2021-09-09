@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Select2OptionData } from 'ngSelect2';
+import { Select2OptionData } from 'ng-select2';
 import { Options } from 'select2';
 
 @Component({

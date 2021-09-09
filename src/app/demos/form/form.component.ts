@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Select2OptionData } from 'ngSelect2';
+import { Select2OptionData } from 'ng-select2';
 
 @Component({
   selector: 'app-form',

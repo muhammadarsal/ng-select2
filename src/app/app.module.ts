@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgSelect2Module } from 'ngSelect2';
+import { NgSelect2Module } from 'ng-select2';
 
 import { AppComponent } from './app.component';
 import { AllowClearComponent } from './demos/allow-clear/allow-clear.component';
