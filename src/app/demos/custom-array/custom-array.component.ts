@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Options } from 'select2';
+import { Options } from 'Select2';
 
 @Component({
   selector: 'app-custom-array',

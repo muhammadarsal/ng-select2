@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Select2OptionData } from 'ng-select2';
-import { Options } from 'select2';
+import { Options } from 'Select2';
 
 @Component({
   selector: 'app-allow-clear',

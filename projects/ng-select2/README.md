@@ -1,6 +1,6 @@
-# Angular 8 wrapper component of jquery select2 (ng-select2)
+# Angular 12 wrapper component of jquery select2 (ng-select2)
 
-[![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2) [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Actions Status](https://github.com/tealpartners/ng-select2/workflows/Node%20CI/badge.svg)](https://github.com/tealpartners/ng-select2/actions)
 
 For Angular version 8.x.x and up. Forked from [ng2-select2](https://www.npmjs.com/package/ng2-select2). Supports two-way data-binding.
 
@@ -79,7 +79,7 @@ import { NgSelect2Module } from 'ng-select2';
 * **options** `Options`: Set options for select2, [all available options](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/4869992bc079b88280b9ff91213528904109e8ae/select2/index.d.ts#L40) for select2
 
 ### Outputs
-* **valueChanged** `string`: Emitted when value changes in select2 drop-down
+* **valueChanged** `string | string[]`: Emitted when value changes in select2 drop-down
 
 # Demos for angular wrapper for Select2
 
@@ -115,5 +115,15 @@ Every single demo is separate component. Bellow you can find links to components
 - default value
 - tags
 
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/value-changed) with value changed
+- Demo with value changed output to console log
+
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/allow-clear) with allow clear option
+- Demo with allow clear option
+
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/form) with a form
+- Demo with a form
 
 Demo forked from: https://github.com/NejcZdovc/ng2-select2-demo

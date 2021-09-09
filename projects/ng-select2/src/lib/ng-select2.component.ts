@@ -1,4 +1,3 @@
-/// <reference types="select2" />
 import {
   forwardRef,
   AfterViewInit,
@@ -20,7 +19,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Select2OptionData } from './ng-select2.interface';
-import { Options } from 'select2';
+import { Options } from 'Select2';
 
 declare var jQuery: any;
 
