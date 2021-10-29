@@ -1,0 +1,32 @@
+<h2>11. Browser address autofill</h2>
+
+<form>
+  <p>
+    <label for="street-address">Street Address:</label>
+    <input type="text" id="street-address"/>
+  </p>
+
+  <p>
+    <label for="address-level2">City:</label>
+    <input type="text" id="address-level2"/>
+  </p>
+
+  <p>
+    <label for="address-level1">US State:</label>
+    <ng-select2 id="address-level1"
+                [data]="exampleData"
+                [width]="300"
+                [allowClear]="true"
+                [(ngModel)]="value"
+                [formControl]="formControl"
+                [options]="options"></ng-select2>
+  </p>
+
+  <p>
+    <label for="postal-code">Post Code:</label>
+    <input type="text" id="postal-code"/>
+  </p>
+</form>
+
+<p>Selected value using ng-model: {{value}}</p>
+<p>Selected value using form control: {{formControl.value}}</p>

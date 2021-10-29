@@ -59,6 +59,9 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
   // enable / disable select2
   @Input() disabled = false;
 
+  // Specify the select's ID
+  @Input() id = null;
+
   // all additional options
   @Input() options: Options;
 
@@ -145,7 +148,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       this.setElementValue(this.value);
     }
 
-    this.element.on('select2:select select2:unselect', (e: any) => {
+    this.element.on('select2:select select2:unselect change', (e: any) => {
       // const newValue: string = (e.type === 'select2:unselect') ? '' : this.element.val();
       const newValue = this.element.val();
 

@@ -15,6 +15,7 @@ import { OptionsComponent } from './demos/options/options.component';
 import { TemplateComponent } from './demos/template/template.component';
 import { ValueChangedComponent } from './demos/value-changed/value-changed.component';
 import { DataService } from './services/data.service';
+import {AutofillComponent} from './demos/autofill/autofill.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { DataService } from './services/data.service';
     CustomArrayComponent,
     ValueChangedComponent,
     AllowClearComponent,
-    FormComponent
+    FormComponent,
+    AutofillComponent
   ],
   imports: [
     BrowserModule,
