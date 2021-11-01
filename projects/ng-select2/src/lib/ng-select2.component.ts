@@ -159,7 +159,9 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       const newValue = this.element.val();
 
       this.valueChanged.emit(newValue);
-      this.propagateChange(newValue);
+      if (e.type !== 'change') {
+        this.propagateChange(newValue);
+      }
     });
   }
 
