@@ -62,6 +62,12 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
   // Specify the select's ID
   @Input() id = null;
 
+  // Specify the select's class(es)
+  @Input() class = null;
+
+  // Specify the select's required attribute
+  @Input() required = null;
+
   // all additional options
   @Input() options: Options;
 
