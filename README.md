@@ -1,4 +1,4 @@
-# Angular 12 wrapper component of jquery select2 (ng-select2)
+# Angular 13 wrapper component of jquery select2 (ng-select2)
 
 [![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Actions Status](https://github.com/tealpartners/ng-select2/workflows/Node%20CI/badge.svg)](https://github.com/tealpartners/ng-select2/actions)
 
@@ -18,7 +18,7 @@ Then install select2 using npm
 
 `npm i -S select2`
 
-Now include their scrpits and styles in your `angularcli.json` file
+Now include their scrpits and styles in your `angular.json` file
 ```
 "styles": [
   "styles.css",
@@ -32,7 +32,7 @@ Now include their scrpits and styles in your `angularcli.json` file
 
 ## Installation
 
-Add package to your project `npm i -S ng-select2` (this will save package to your `dependencies` in `package.json`)
+Add package to your project `npm i -s ng-select2` (this will save package to your `dependencies` in `package.json`)
 
 
 ## Basic implementation
@@ -81,7 +81,7 @@ import { NgSelect2Module } from 'ng-select2';
 ### Outputs
 * **valueChanged** `string | string[]`: Emitted when value changes in select2 drop-down
 
-# Demos for angular wrapper for Select2
+# Demos for Angular wrapper for Select2
 
 You can view a live demo [here](https://tealpartners.github.io/ng-select2)
 
