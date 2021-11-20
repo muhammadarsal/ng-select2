@@ -14,6 +14,8 @@ Oh hi there! 😄
 To expedite issue processing please search open and closed issues before submitting a new one.
 Existing issues often contain information about workarounds, resolution, or progress updates.
 
+Also check this is an issue for the ng-select2 wrapper, issues about select2 can be created at the [select2 repository](https://github.com/select2/select2).
+
 🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅-->
 
 # 🚀 Feature request
