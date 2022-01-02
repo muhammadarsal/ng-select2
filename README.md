@@ -76,6 +76,9 @@ import { NgSelect2Module } from 'ng-select2';
 * **disabled** `boolean`: Disable select2, default value is `false`
 * **allowClear** `boolean`:  	Provides support for [clearable selections](https://select2.org/selections#clearable-selections), default value is `false`
 * **placeholder** `string`: Placeholder for select2
+* **id** `string`: Set the id attribute
+* **class** `string`: Set the class attribute
+* **required** `boolean`: Set the required attribute
 * **options** `Options`: Set options for select2, [all available options](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/4869992bc079b88280b9ff91213528904109e8ae/select2/index.d.ts#L40) for select2
 
 ### Outputs
