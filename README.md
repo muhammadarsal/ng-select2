@@ -1,3 +1,7 @@
+# This package is archived and no longer maintained 
+You can use [@ng-select/ng-select](https://github.com/ng-select/ng-select) as replacement.
+
+<br><br><br><br><br><br><br><br><br><br>
 # Angular 13 wrapper component of jquery select2 (ng-select2)
 
 [![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Actions Status](https://github.com/tealpartners/ng-select2/workflows/Node%20CI/badge.svg)](https://github.com/tealpartners/ng-select2/actions)
