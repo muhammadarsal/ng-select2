@@ -1,8 +1,12 @@
-# Angular 4 wrapper component of jquery select2 (ng-select2)
+# This package is archived and no longer maintained 
+You can use [@ng-select/ng-select](https://github.com/ng-select/ng-select) as replacement.
 
-[![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2) [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+<br><br><br><br><br><br><br><br><br><br>
+# Angular 13 wrapper component of jquery select2 (ng-select2)
 
-For Angular version 4.x.x and up. Forked from [ng2-select2](https://www.npmjs.com/package/ng2-select2). Supports two-way data-binding.
+[![npm version](https://badge.fury.io/js/ng-select2.svg)](https://badge.fury.io/js/ng-select2)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Actions Status](https://github.com/tealpartners/ng-select2/workflows/Node%20CI/badge.svg)](https://github.com/tealpartners/ng-select2/actions)
+
+For Angular version 8.x.x and up. Forked from [ng2-select2](https://www.npmjs.com/package/ng2-select2). Supports two-way data-binding.
 
 ## Prerequisites
 
@@ -18,21 +22,21 @@ Then install select2 using npm
 
 `npm i -S select2`
 
-Now include their scrpits and styles in your `angularcli.json` file
+Now include their scrpits and styles in your `angular.json` file
 ```
 "styles": [
   "styles.css",
-  "../node_modules/select2/dist/css/select2.min.css"
+  "node_modules/select2/dist/css/select2.min.css"
 ],
 "scripts": [
-  "../node_modules/jquery/dist/jquery.js",
-  "../node_modules/select2/dist/js/select2.min.js"
+  "node_modules/jquery/dist/jquery.js",
+  "node_modules/select2/dist/js/select2.min.js"
 ],
 ```
 
 ## Installation
 
-Add package to your project `npm i -S ng-select2` (this will save package to your `dependencies` in `package.json`)
+Add package to your project `npm i -s ng-select2` (this will save package to your `dependencies` in `package.json`)
 
 
 ## Basic implementation
@@ -71,10 +75,62 @@ import { NgSelect2Module } from 'ng-select2';
 ### Inputs
 * **data** `Array<Select2OptionData>`: Data used for generating select2 - inferface definition
 * **value** `string`: Default value for select2
+* **dropdownParent** `string`: Allows you to [customize placement](https://select2.org/dropdown#dropdown-placement) of the dropdown.
 * **width** `string`: Set width for the input, default value is `resolve`
 * **disabled** `boolean`: Disable select2, default value is `false`
+* **allowClear** `boolean`:  	Provides support for [clearable selections](https://select2.org/selections#clearable-selections), default value is `false`
 * **placeholder** `string`: Placeholder for select2
-* **options** `Select2Options`: Set options for select2, [all available options](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/4869992bc079b88280b9ff91213528904109e8ae/select2/index.d.ts#L40) for select2
+* **id** `string`: Set the id attribute
+* **class** `string`: Set the class attribute
+* **required** `boolean`: Set the required attribute
+* **options** `Options`: Set options for select2, [all available options](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/4869992bc079b88280b9ff91213528904109e8ae/select2/index.d.ts#L40) for select2
 
 ### Outputs
-* **valueChanged** `string`: Emitted when value changes in select2 drop-down
+* **valueChanged** `string | string[]`: Emitted when value changes in select2 drop-down
+
+# Demos for Angular wrapper for Select2
+
+You can view a live demo [here](https://tealpartners.github.io/ng-select2)
+
+Every single demo is separate component. Bellow you can find links to components with descriptions.
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/basic)
+- basic demo with only data input
+- disabled value in data array
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/options) with options
+- width option
+- theme option
+- multiple option
+- closeOnSelect option
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/template) with custom template demo
+- custom template for drop down
+- custom template for select2 input
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/change) with data changing demo
+- when you change value in drop down, new value is displayed on the screen
+- you can change selected value
+- you can change select2 data
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/dynamic) with dynamic load demo
+- data is loaded with 4 second delay
+- selected value is loaded with 6 second delay
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/multiple) with a multiple options
+- multiple options
+- default value
+- tags
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/value-changed) with value changed
+- Demo with value changed output to console log
+
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/allow-clear) with allow clear option
+- Demo with allow clear option
+
+
+#### [Demo](https://github.com/tealpartners/ng-select2/tree/master/src/app/demos/form) with a form
+- Demo with a form
+
+Demo forked from: https://github.com/NejcZdovc/ng2-select2-demo

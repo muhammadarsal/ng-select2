@@ -1,0 +1,22 @@
+<h2>4. Demo with a value changing</h2>
+<ng-select2 [data]="exampleData"
+            [placeholder]="placeholder"
+            [width]="300"
+            [(ngModel)]="value">
+</ng-select2>
+<div *ngIf="value">
+  <br />
+  <br /> Selected value in select 2:
+  <b>{{value}}</b>
+</div>
+<br />
+<br />
+<button type="button"
+        class="btn btn-primary"
+        (click)="changeValue()">Change value</button>&nbsp;
+<button type="button"
+        class="btn btn-secondary"
+        (click)="changeData()">Change data</button>&nbsp;
+<button type="button"
+        class="btn btn-info"
+        (click)="changePlaceholder()">Change placeholder</button>

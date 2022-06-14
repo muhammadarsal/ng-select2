@@ -1,0 +1,32 @@
+<h2>10. Form demo</h2>
+<form (ngSubmit)="onSubmit()"
+      #testForm="ngForm">
+
+  <div class="form-group"
+       *ngIf="!submitted else showData">
+    <label for="name">Name: </label>
+    <ng-select2 [data]="exampleData"
+                [(ngModel)]="value"
+                required
+                name="name"
+                #name="ngModel"
+                [width]="300">
+    </ng-select2>
+    <div [hidden]="name.valid || name.pristine"
+         class="alert alert-danger">
+      Name is required
+    </div>
+  </div>
+
+  <button *ngIf="!submitted"
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!testForm.form.valid">Submit</button>
+  <button type="button"
+          class="btn btn-default"
+          (click)="testForm.reset(); submitted = false">Reset</button>
+</form>
+
+<ng-template #showData>
+  <p>Form is submitted with value: {{value}}</p>
+</ng-template>

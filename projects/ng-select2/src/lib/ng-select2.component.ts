@@ -1,25 +1,23 @@
-/// <reference types="select2" />
 import {
+  forwardRef,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  DoCheck,
   ElementRef,
   EventEmitter,
   Input,
+  NgZone,
   OnChanges,
-  DoCheck,
   OnDestroy,
+  OnInit,
   Output,
+  Renderer2,
   SimpleChanges,
   ViewChild,
   ViewEncapsulation,
-  Renderer,
-  OnInit,
-  forwardRef,
-  NgZone,
-  Self
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Select2OptionData } from './ng-select2.interface';
 import { Options } from 'select2';
 
@@ -34,12 +32,12 @@ declare var jQuery: any;
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NgSelect2Component),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, OnInit, DoCheck, ControlValueAccessor {
-  @ViewChild('selector') selector: ElementRef;
+  @ViewChild('selector', { static: true }) selector: ElementRef;
 
   // data for select2 drop down
   @Input() data: Array<Select2OptionData>;
@@ -55,26 +53,32 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
   // value for select2
   @Input() value: string | string[];
 
-  // enable / disable default style for select2
-  // @Input() cssImport = false;
-
   // width of select2 input
   @Input() width: string;
 
   // enable / disable select2
   @Input() disabled = false;
 
+  // Specify the select's ID
+  @Input() id: string = null;
+
+  // Specify the select's class(es)
+  @Input() class: string = null;
+
+  // Specify the select's required attribute
+  @Input() required: boolean = null;
+
   // all additional options
   @Input() options: Options;
 
   // emitter when value is changed
-  @Output() valueChanged = new EventEmitter();
+  @Output() valueChanged = new EventEmitter<string | string[]>();
 
   private element: any = undefined;
   private check = false;
-  private style = `CSS`;
+  // private style = `CSS`;
 
-  constructor(private renderer: Renderer, public zone: NgZone, public _element: ElementRef) {
+  constructor(private renderer: Renderer2, public zone: NgZone, public _element: ElementRef) {
   }
 
   ngDoCheck() {
@@ -108,6 +112,7 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
 
       const newValue: string | string[] = this.value;
       this.setElementValue(newValue);
+      this.valueChanged.emit(newValue);
       this.propagateChange(newValue);
     }
 
@@ -116,65 +121,62 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       const newValue: string = changes['value'].currentValue;
 
       this.setElementValue(newValue);
-      this.valueChanged.emit({
-        value: newValue,
-        data: this.element.select2('data')
-      });
+      this.valueChanged.emit(newValue);
       this.propagateChange(newValue);
     }
 
     if (changes['disabled'] && changes['disabled'].previousValue !== changes['disabled'].currentValue) {
-      this.renderer.setElementProperty(this.selector.nativeElement, 'disabled', this.disabled);
+      this.renderer.setProperty(this.selector.nativeElement, 'disabled', this.disabled);
     }
 
     if (changes['placeholder'] && changes['placeholder'].previousValue !== changes['placeholder'].currentValue) {
-      this.renderer.setElementAttribute(this.selector.nativeElement, 'data-placeholder', this.placeholder);
+      this.element.data('select2').$container.find('.select2-selection__placeholder').text(this.placeholder);
     }
 
     if (changes['dropdownParent'] && changes['dropdownParent'].previousValue !== changes['dropdownParent'].currentValue) {
-      this.renderer.setElementAttribute(this.selector.nativeElement, 'data-dropdownParent', this.dropdownParent);
+      this.renderer.setAttribute(this.selector.nativeElement, 'data-dropdownParent', '#' + this.dropdownParent);
     }
 
     if (changes['allowClear'] && changes['allowClear'].previousValue !== changes['allowClear'].currentValue) {
-      this.renderer.setElementAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
+      this.renderer.setAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
     }
   }
 
   ngAfterViewInit() {
     this.element = jQuery(this.selector.nativeElement);
-    this.renderer.setElementAttribute(this.selector.nativeElement, 'data-placeholder', this.placeholder);
-    this.renderer.setElementAttribute(this.selector.nativeElement, 'data-dropdownParent', this.dropdownParent);
-    this.renderer.setElementAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
+    this.renderer.setAttribute(this.selector.nativeElement, 'data-dropdownParent', '#' + this.dropdownParent);
+    this.renderer.setAttribute(this.selector.nativeElement, 'data-allow-clear', this.allowClear.toString());
     // console.log(this.selector.nativeElement);
 
     this.initPlugin();
 
-    if (typeof this.value !== 'undefined') {
+    if (this.value !== undefined && this.value !== null) {
       this.setElementValue(this.value);
     }
 
-    this.element.on('select2:select select2:unselect', (e: any) => {
+    this.element.on('select2:select select2:unselect change', (e: any) => {
       // const newValue: string = (e.type === 'select2:unselect') ? '' : this.element.val();
-      const newValue =  this.element.val();
+      const newValue = this.element.val();
 
-      this.valueChanged.emit({
-        value: newValue,
-        data: this.element.select2('data')
-      });
-      this.propagateChange(newValue);
-      this.setElementValue(newValue);
+      this.valueChanged.emit(newValue);
+      if (e.type !== 'change') {
+        this.propagateChange(newValue);
+      }
     });
   }
 
   ngOnDestroy() {
-    this.element.off('select2:select');
+    if (this.element) {
+      this.element.off('select2:select');
+    }
   }
 
   private initPlugin() {
     if (!this.element.select2) {
       if (!this.check) {
         this.check = true;
-        console.log('Please add Select2 library (js file) to the project. You can download it from https://github.com/select2/select2/tree/master/dist/js.');
+        console.log('Please add Select2 library (js file) to the project.' +
+          'You can download it from https://github.com/select2/select2/tree/master/dist/js.');
       }
 
       return;
@@ -183,23 +185,19 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     // If select2 already initialized remove him and remove all tags inside
     if (this.element.hasClass('select2-hidden-accessible') === true) {
       this.element.select2('destroy');
-      this.renderer.setElementProperty(this.selector.nativeElement, 'innerHTML', '');
+      this.renderer.setProperty(this.selector.nativeElement, 'innerHTML', '');
     }
 
-    let options: Options = {
+    const options: Options = {
       data: this.data,
-      width: (this.width) ? this.width : 'resolve'
+      width: (this.width) ? this.width : 'resolve',
+      placeholder: this.placeholder
     };
 
     if (this.dropdownParent) {
-      options = {
-        data: this.data,
-        width: (this.width) ? this.width : 'resolve',
-        dropdownParent: jQuery('#' + this.dropdownParent)
-      };
+      options.dropdownParent = jQuery('#' + this.dropdownParent);
     }
 
-    // this.options.placeholder = '::SELECT::';
     Object.assign(options, this.options);
 
     if (options.matcher) {
@@ -215,27 +213,25 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
       this.element.select2(options);
     }
 
-    this.renderer.setElementProperty(this.selector.nativeElement, 'disabled', this.disabled);
+    this.renderer.setProperty(this.selector.nativeElement, 'disabled', this.disabled);
   }
 
   private setElementValue(newValue: string | string[]) {
 
     // this.zone.run(() => {
 
-      if (Array.isArray(newValue)) {
+    if (Array.isArray(newValue)) {
 
-        for (const option of this.selector.nativeElement.options) {
-          this.renderer.setElementProperty(option, 'selected', (newValue.indexOf(option.value) > -1));
-        }
+      for (const option of this.selector.nativeElement.options) {
+        this.renderer.setProperty(option, 'selected', (newValue.indexOf(option.value) > -1));
       }
+    } else {
+      this.renderer.setProperty(this.selector.nativeElement, 'value', newValue);
+    }
 
-      else {
-        this.renderer.setElementProperty(this.selector.nativeElement, 'value', newValue);
-      }
-
-      if(this.element) {
-        this.element.trigger('change.select2');
-      }
+    if (this.element) {
+      this.element.trigger('change.select2');
+    }
     // });
   }
 
@@ -248,13 +244,17 @@ export class NgSelect2Component implements AfterViewInit, OnChanges, OnDestroy, 
     }
   }
 
-  propagateChange = (value: any) => { };
+  propagateChange = (value: string | string[]) => { };
 
   registerOnChange(fn: any) {
     this.propagateChange = fn;
-    this.valueChanged.subscribe(fn);
   }
 
   registerOnTouched() {
+  }
+
+  setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
+    this.renderer.setProperty(this.selector.nativeElement, 'disabled', this.disabled);
   }
 }
